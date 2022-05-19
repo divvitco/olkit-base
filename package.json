@@ -1,6 +1,6 @@
 {
   "name": "@olkit/core",
-  "version": "0.0.0",
+  "version": "0.0.1-rc.0",
   "description": "A ReactJS library extending openlayers",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
