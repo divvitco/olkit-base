@@ -1,0 +1,29 @@
+# Project
+demo/
+.storybook/
+src/
+rollup.config.js
+.gitignore
+*.md
+
+# OS X
+.DS_Store*
+._*
+
+# NPM
+node_modules
+*.log
+*.gz
+
+# Test Coverage
+coverage
+
+# Benchmarking
+benchmarks/graphs
+
+# IDEs
+/.idea
+.idea
+/.idea_modules
+*.iml
+*.tgz
