@@ -1,9 +1,9 @@
 import Map from "ol/Map"
 import { FeatureLike } from "ol/Feature"
-import React, { useState, useEffect, useRef, useContext, ReactElement } from "react"
-import MapContext from "../Map/MapContext"
+import React, { useState, useEffect, useRef, ReactElement } from "react"
 import PopupContext, { PopupClickDetails } from "./PopupContext"
 import MapEvent from "ol/MapBrowserEvent"
+import { useMapContext } from "../../utils"
 
 export interface PopupProps {
     /** 
@@ -22,7 +22,7 @@ export interface PopupProps {
 
 const Popup: React.FC<PopupProps> = (props) => {
     const { children, eventTrigger = "click", onMapEvent = () => {} } = props
-    const map = useContext(MapContext)
+    const map = useMapContext()
     const childRef = useRef(null)
 
     const [ popupInfo, setPopupInfo ] = useState<PopupClickDetails>({ features: [], location: { pixel: null, coordinates: null } })

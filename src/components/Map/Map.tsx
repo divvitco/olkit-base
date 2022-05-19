@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect } from "react"
-import useMapContext from "./useMapContext"
+import { useMapContext } from "../../utils/useMapContext"
 
 export interface MapProps {
-    children: ReactNode
+    children?: ReactNode
 }
 
 const Map: React.FC<MapProps> = (props) => {

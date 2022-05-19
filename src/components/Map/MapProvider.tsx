@@ -9,24 +9,24 @@ export interface MapProviderProps {
     /**
      * React Node - children of the map component
      */
-    children: ReactNode,
+    children?: ReactNode,
     /**
      * Custom ol map if desired
      */
-    map: OlMap | null,
+    map?: OlMap,
     /** 
      * callback that fires once the map has initialized
      */
-    onMapInit: ((map: OlMap) => Promise<void>),
+    onMapInit?: ((map: OlMap) => Promise<void>),
 }
 
 
 /**
  * Map component - adds map to view and also puts the ol map into context
  */
-const Map: React.FC<MapProviderProps> = (props) => {
+const MapProvider: React.FC<MapProviderProps> = (props) => {
     const { children, onMapInit = () => {} } = props
-    const [map, setMap] = useState<OlMap | null>(null)
+    const [ map, setMap ] = useState<OlMap | null>(null)
 
     const onMapReady = (passedMap: OlMap) => {
         const allSystemsGo = () => {
@@ -39,11 +39,11 @@ const Map: React.FC<MapProviderProps> = (props) => {
   
         // update AFTER onMapInit to get map into the state/context
         isPromise
-          ? initCallback
-            .catch(e => console.error("Error caught in \"onMapInit\"", e))
-            .finally(allSystemsGo) // always initialize app
-          : allSystemsGo()
-      }
+            ? initCallback
+                .catch(e => console.error("Error caught in \"onMapInit\"", e))
+                .finally(allSystemsGo) // always initialize app
+            : allSystemsGo()
+    }
 
     useEffect(() => {
         if (props.map) {
@@ -70,4 +70,4 @@ const Map: React.FC<MapProviderProps> = (props) => {
         </MapContext.Provider>
     )
 }
-export default Map
+export default MapProvider
