@@ -85,7 +85,7 @@ export const loadDataLayer = async (map: Map, query: URL): Promise<olLayerVector
     features = getFeaturesFromDataSet(map, dataSet)
   } else if (!features.length) {
     // catch malformed queries here
-    throw Error(`'loadDataLayer' recieved invalid query: '${query}' as second argument`)
+    throw Error(`'loadDataLayer' received invalid query: '${query}' as second argument`)
   }
 
   // create the layer and add features
